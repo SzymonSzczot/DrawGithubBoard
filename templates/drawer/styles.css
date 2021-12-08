@@ -1,0 +1,22 @@
+#mydiv {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+    height: 100px;
+    width: 100px;
+    opacity: 50%;
+}
+
+.square {
+    height: 50px;
+    width: 50px;
+    background-color: #555;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
+.row {
+    display: inline-block;
+}
