@@ -6,7 +6,7 @@ class GithubCommitService:
 
     def __init__(self, github):
         self.service = GithubService(github)
-        self.repositories_url = f"{API_URL}/repos/{github.username}/{github.repo}/contents"
+        self.repositories_url = f"{API_URL}/repos/{github.username}/{github.repository}/contents"
 
     def get_file(self, path):
         return self.service.make_request(
@@ -15,9 +15,9 @@ class GithubCommitService:
             needs_auth=False
         )
 
-    def update_file(self, path, content):
+    def create_or_update_file(self, path, content):
         file_to_update = self.get_file(path)
-        file_sha = file_to_update["sha"]
+        file_sha = file_to_update.get("sha", "")
         return self.service.make_request(
             method="put",
             url=f"{self.repositories_url}/{path}",
