@@ -27,7 +27,7 @@ class GithubAuthService:
             "Accept": "application/json"
         }
 
-    def get_device_code_response(self):
+    def get_device_code(self):
         return self._make_request(
             "https://github.com/login/device/code",
             body={
@@ -44,4 +44,4 @@ class GithubAuthService:
                 "device_code": self.github.device_code,
                 "grant_type": "urn:ietf:params:oauth:grant-type:device_code"
             }
-        )["access_token"]
+        )
