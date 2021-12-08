@@ -13,20 +13,19 @@
             background-color: #98b3a0;
             text-align: center;
             border: 1px solid #d3d3d3;
-            height: 300px;
+            height: 400px;
             width: 500px;
             opacity: 50%;
         }
         .square {
-            height: 50px;
-            width: 50px;
-            border-width: 3px;
-            margin-bottom: 5px;
+            height: 20px;
+            width: 20px;
+            border-width: 1px;
+            margin-bottom: 2px;
             margin-right: 10px;
         }
         .row {
-            display: inline-block;
-            margin-right: 10px;
+            margin-right: 5px;
         }
         .card-bg {
             background: #eeeeee;
@@ -44,7 +43,7 @@
     <h5 class="card-title">Preview</h5>
     <div class="card-body card-bg">
         {% for week in weeks|as_range %}
-            <div class="row">
+            <div>
                 {% for day in days|as_range %}
                     <button type="button" class="btn btn-outline-secondary square"
                             onclick="dayClick(this)">
