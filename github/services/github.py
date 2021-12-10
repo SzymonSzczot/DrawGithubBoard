@@ -28,7 +28,6 @@ class GithubService:
             assert not response.get("error")
             return response
         except AssertionError as e:
-            import pdb;pdb.set_trace()
             raise GithubRequestFailed(str(e))
 
     def _check_access_token(self):

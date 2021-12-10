@@ -13,7 +13,8 @@ class GithubAuthService:
                 "client_id": self.service.github.client_id,
                 "scope": self.service.github.scope
             },
-            needs_auth=False
+            needs_auth=False,
+            method="post"
          )
 
     def get_access_token(self):
@@ -24,5 +25,6 @@ class GithubAuthService:
                 "device_code": self.service.github.device_code,
                 "grant_type": "urn:ietf:params:oauth:grant-type:device_code"
             },
-            needs_auth=False
+            needs_auth=False,
+            method="post"
         )
