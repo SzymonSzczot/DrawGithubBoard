@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 
     "crons",
     "github",
-    "drawing"
+    "drawings"
 ]
 
 MIDDLEWARE = [
