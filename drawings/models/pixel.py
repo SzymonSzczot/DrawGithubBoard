@@ -1,5 +1,7 @@
 from django.db import models
 
+from drawings.utils.parsers import pixel_parse_to_identifier
+
 
 class Pixel(models.Model):
     drawing = models.ForeignKey(
@@ -14,4 +16,4 @@ class Pixel(models.Model):
 
     @property
     def coords(self):
-        return self.position.isocalendar()
+        return pixel_parse_to_identifier(self.position)

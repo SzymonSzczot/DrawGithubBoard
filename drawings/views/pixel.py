@@ -5,6 +5,7 @@ from rest_framework import viewsets
 from ..models import Pixel
 from ..serializers import PixelCreateSerializer
 from ..serializers import PixelSerializer
+from ..utils.parsers import pixel_parse_to_date
 
 
 class PixelViewSet(viewsets.ModelViewSet):
@@ -14,9 +15,8 @@ class PixelViewSet(viewsets.ModelViewSet):
     def get_object(self):
         try:
             lookup_url_kwarg = self.lookup_url_kwarg or self.lookup_field
-            year, week, weekday = self.kwargs[lookup_url_kwarg].split("_")
-            weekday = str(int(weekday) % 7)
-            return self.get_queryset().get(position=datetime.datetime.strptime(f"{year}-{week}-{weekday}", "%Y-%W-%w").date())
+            pixel_position = pixel_parse_to_date(self.kwargs[lookup_url_kwarg])
+            return self.get_queryset().get(position=pixel_position)
         except (Pixel.DoesNotExist, ValueError):
             return super().get_object()
 
