@@ -5,19 +5,22 @@ Allows to draw any image on your Github Board profile
 Startup:
 
 Terminal 1 (Django):
+```
 cd backend_app
 pip install -r requirements.txt
 ./manage.py migrate
 ./manage.py runserver
-
+```
 Terminal 2 (Rqworker queue for integration with github and later to draw on board):
+```
 cd backend_app
 ./manage.py rqworker default
-
+```
 Terminal 3 (Flask and ML):
+```
 cd ml_app
 python main.py
-
+```
 
 # Django Module:
 Handle connection with Github
