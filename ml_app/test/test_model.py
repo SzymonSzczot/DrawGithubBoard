@@ -2,8 +2,8 @@ import torch
 from torch.utils.data import DataLoader
 from torch.utils.data import Dataset
 
-import constants
-from utils import load_model
+from .. import constants
+from ..utils import load_model
 
 
 class LettersDatasetTest(Dataset):

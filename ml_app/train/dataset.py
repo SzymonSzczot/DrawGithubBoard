@@ -1,9 +1,9 @@
 import torch
 from torch.utils.data import Dataset
 
-from train import As
-from train import Bs
-from train import Cs
+from . import As
+from . import Bs
+from . import Cs
 
 
 class LettersDataset(Dataset):

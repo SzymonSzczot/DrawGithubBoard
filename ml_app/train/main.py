@@ -2,9 +2,9 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 
-import constants
+from .. import constants
+from ..model import NeuralNet
 from dataset import LettersDataset
-from model import NeuralNet
 
 if __name__ == '__main__':
 
