@@ -13,6 +13,11 @@ class Predictor:
         assert len(input_value) == 7
         assert len(input_value[0]) == 5
         with torch.no_grad():
-            image = input_value.reshape(-1, 5 * 7)
+            input_tensor = torch.tensor(input_value, dtype=torch.float32)
+            image = input_tensor.reshape(-1, 5 * 7)
             outputs = self.model(image)
-            return torch.max(outputs.data, 1)
+            v, p = torch.max(outputs.data, 1)
+            return {
+                "confidence": v.item(),
+                "class": p.item()
+            }

@@ -2,9 +2,9 @@ from django.conf import settings
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 
-from drawings.views.drawer import DrawTemplateView
-from drawings.views.drawing import DrawingViewSet
-from drawings.views.pixel import PixelViewSet
+from .views.drawer import DrawTemplateView
+from .views.drawing import DrawingViewSet
+from .views.pixel import PixelViewSet
 
 router = DefaultRouter()
 router.register("items", DrawingViewSet)

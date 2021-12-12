@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 
-from drawings.models import Drawing
+from ..models import Drawing
 
 
 class DrawTemplateView(TemplateView):

@@ -1,6 +1,6 @@
 from django.db import models
 
-from drawings.utils.parsers import pixel_parse_to_identifier
+from ..utils.parsers import pixel_parse_to_identifier
 
 
 class Pixel(models.Model):
@@ -15,5 +15,5 @@ class Pixel(models.Model):
     position = models.DateField(unique=True)
 
     @property
-    def coords(self):
+    def date_coords(self):
         return pixel_parse_to_identifier(self.position)

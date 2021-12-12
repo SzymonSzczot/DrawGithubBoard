@@ -2,9 +2,12 @@ from datetime import date
 from datetime import datetime
 
 
-def pixel_parse_to_date(value: str):
+def pixel_parse_to_date(value: str, reset_weekday=False):
     year, week, weekday = value.split("_")
-    weekday = str(int(weekday) % 7)
+    if reset_weekday:
+        weekday = 1
+    else:
+        weekday = str(int(weekday) % 7)
     return datetime.strptime(f"{year}-{week}-{weekday}", "%Y-%W-%w").date()
 
 

@@ -9,13 +9,13 @@ class PixelSerializer(serializers.ModelSerializer):
     year = serializers.SerializerMethodField()
 
     def get_day(self, instance):
-        return instance.coords[2]
+        return instance.date_coords[2]
 
     def get_week(self, instance):
-        return instance.coords[1]
+        return instance.date_coords[1]
 
     def get_year(self, instance):
-        return instance.coords[0]
+        return instance.date_coords[0]
 
     class Meta:
         model = Pixel

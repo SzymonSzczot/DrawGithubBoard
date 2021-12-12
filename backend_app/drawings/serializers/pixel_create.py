@@ -1,8 +1,8 @@
 from rest_framework import fields
 from rest_framework import serializers
 
-from drawings.models import Pixel
-from drawings.utils.parsers import pixel_parse_to_date
+from ..models import Pixel
+from ..utils.parsers import pixel_parse_to_date
 
 
 class InputPositionField(fields.DateField):
@@ -25,6 +25,8 @@ class PixelCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pixel
         fields = (
+            "id",
             "drawing",
             "position"
         )
+        read_only_fields = ("id", )

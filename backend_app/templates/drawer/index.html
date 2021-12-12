@@ -80,13 +80,13 @@
                 </div>
             </div>
 {#                <div id="marker"></div>#}
+                    <div id="drawingTable">
                     {% for year in "2021"|as_range:"2022" %}
-                        {% for week in "1"|as_range:"40" %}
+                        {% for week in "1"|as_range:"6" %}
                             <div style="display: inline-block">
                             <ul class="list-group">
                                 {% for day in "1"|as_range:"8" %}
                                     {% with year|concat:"_"|concat:week|concat:"_"|concat:day as point_identifier %}
-
                                     <button id="{{ point_identifier }}"
                                             type="button"
                                             class="list-group-item square {% if point_identifier in points %} clicked {% endif %}"
@@ -96,37 +96,37 @@
                                 {% endfor %}
                             </ul>
                             </div>
-
                         {% endfor %}
-
                     {% endfor %}
+                    </div>
                 <script>
                 function dayClick(button) {
-                  if (button.classList.toggle("clicked")){
-                  let drawing_id = window.location.href.toString().split("/").at(-1).replace("#", "");
+                    let drawing_id = window.location.href.toString().split("/").at(-1).replace("#", "");
+                    let grid_start = document.getElementsByClassName("square")[0].id;
                     let data = {
                         "drawing": parseInt(drawing_id),
-                        "position": button.id
+                        "position": button.id,
+                        "grid_start": grid_start,
                     };
-                    console.log(button.id)
-                    pr = fetch("/drawing/pixels/", {
+                  if (button.classList.toggle("clicked")){
+                      data["method"] = "POST"
+                    fetch("/drawing/pixels/", {
                       method: "POST",
                       headers: {'Content-Type': 'application/json'},
                       body: JSON.stringify(data)
-                    }).then(res => {
-                      console.log("Request complete! response:", res);
-                    });
+                    }).then(response => response.json()
+                    ).then(data => document.getElementById("recommendations").innerHTML = data["prediction_html"]);
                     }
                   else {
-                    pr = fetch("/drawing/pixels/" + button.id, {
-                      method: "DELETE",
+                      data["method"] = "DELETE"
+                    fetch("/drawing/pixels/", {
+                      method: "POST",
                       headers: {'Content-Type': 'application/json'},
-                    }).then(res => {
-                      console.log("Request complete! response:", res);
-                    });
+                      body: JSON.stringify(data)
+                    }).then(response => response.json()
+                    ).then(data => document.getElementById("recommendations").innerHTML = data["prediction_html"]);
                   }
                 }
-
                 </script>
                 <script>
                     //Make the DIV element draggagle:
@@ -174,6 +174,7 @@
                     }
 
                 </script>
+                <div id="recommendations" style="padding-top: 20px; border: green;">
             </div>
         </main>
     </div>
