@@ -36,5 +36,5 @@ Implements recognition of letter that is currently drawn on grid.
 ![image](https://user-images.githubusercontent.com/38433235/145724271-6c6f0922-bfbd-4152-a17d-f5ea51b852b3.png)
 ![image](https://user-images.githubusercontent.com/38433235/145724278-7b9ff7ae-174a-4c6d-81a2-43dc8c819464.png)
 
-# Flask Modeule:
+# Flask Module:
 Interface for communication between Django and ML
