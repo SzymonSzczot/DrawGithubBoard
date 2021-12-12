@@ -1,9 +1,9 @@
 from rest_framework import views
 from rest_framework.response import Response
 
-from github.jobs import poll_access_token
-from github.models import Github
-from github.services.authentication import GithubAuthService
+from ..jobs import poll_access_token
+from ..models import Github
+from ..services.authentication import GithubAuthService
 
 
 class GithubAuthAPIView(views.APIView):

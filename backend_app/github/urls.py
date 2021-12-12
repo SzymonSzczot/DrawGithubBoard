@@ -2,8 +2,8 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 # from github.views.github import GithubViewSet
-from github.views.auth import GithubAuthAPIView
-from github.views.update_file import UpdateFileAPIView
+from .views.auth import GithubAuthAPIView
+from .views.update_file import UpdateFileAPIView
 
 router = DefaultRouter()
 

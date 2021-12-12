@@ -2,8 +2,8 @@ import time
 
 from django_rq import job
 
-from github.services.authentication import GithubAuthService
-from utils.exceptions import GithubRequestFailed
+from .services.authentication import GithubAuthService
+from ..utils.exceptions import GithubRequestFailed
 
 
 def save_credentials(auth_service, github):

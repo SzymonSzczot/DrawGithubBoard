@@ -70,11 +70,9 @@ if __name__ == '__main__':
         n_samples = 0
         for images, labels in test_loader:
             images = images.reshape(-1, 5 * 7)
-            print(images)
             outputs = loaded_model(images)
             # max returns (value ,index)
             _, predicted = torch.max(outputs.data, 1)
-            print(predicted)
             n_samples += labels.size(0)
             n_correct += (predicted == labels).sum().item()
 

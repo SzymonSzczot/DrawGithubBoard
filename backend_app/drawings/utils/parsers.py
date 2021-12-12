@@ -13,3 +13,9 @@ def pixel_parse_to_date(value: str, reset_weekday=False):
 
 def pixel_parse_to_identifier(value: date):
     return value.isocalendar()
+
+
+class HTMLParser:
+    START_ROW_SNIPPET = """<div style="display: inline-block">"""
+    END_ROW_SNIPPET = """</ul></div>"""
+    BUTTON_SNIPPET = """<button type="button" class="list-group-item square {additional_class}" </button> """

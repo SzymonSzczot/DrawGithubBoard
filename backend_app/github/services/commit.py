@@ -1,5 +1,5 @@
-from github.constants import API_URL
-from github.services.github import GithubService
+from ..constants import API_URL
+from .github import GithubService
 
 
 class GithubCommitService:

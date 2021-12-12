@@ -36,9 +36,9 @@
             background-color: #98b3a0;
             text-align: center;
             border: 1px solid #d3d3d3;
-            height: 400px;
-            width: 500px;
-            opacity: 50%;
+            height: 154px;
+            width: 135px;
+            opacity: 40%;
         }
         .square {
             height: 22px;
@@ -65,11 +65,8 @@
                             <span data-feather="home"></span>
                             Preview
                         </a>
-
                     </li>
                 </ul>
-
-
             </div>
         </nav>
 
@@ -79,10 +76,10 @@
                 <div class="btn-toolbar mb-2 mb-md-0">
                 </div>
             </div>
-{#                <div id="marker"></div>#}
+                <div id="marker"></div>
                     <div id="drawingTable">
                     {% for year in "2021"|as_range:"2022" %}
-                        {% for week in "1"|as_range:"6" %}
+                        {% for week in "1"|as_range:"12" %}
                             <div style="display: inline-block">
                             <ul class="list-group">
                                 {% for day in "1"|as_range:"8" %}
@@ -174,6 +171,12 @@
                     }
 
                 </script>
+
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Recommendation</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                </div>
+            </div>
                 <div id="recommendations" style="padding-top: 20px; border: green;">
             </div>
         </main>

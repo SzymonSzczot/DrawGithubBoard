@@ -1,4 +1,4 @@
-from github.services.github import GithubService
+from .github import GithubService
 
 
 class GithubAuthService:

@@ -1,9 +1,4 @@
-
-class HTMLParser:
-
-    START_ROW_SNIPPET = """<div style="display: inline-block">"""
-    END_ROW_SNIPPET = """</ul></div>"""
-    BUTTON_SNIPPET = """<button type="button" class="list-group-item square {additional_class}" </button> """
+from ..utils.parsers import HTMLParser
 
 
 class Matrix:

@@ -1,10 +1,8 @@
-import json
-
 from rest_framework import views
 from rest_framework.response import Response
 
-from github.models import Github
-from github.services.commit import GithubCommitService
+from ..models import Github
+from ..services.commit import GithubCommitService
 
 
 class UpdateFileAPIView(views.APIView):

@@ -3,7 +3,7 @@ import json
 
 import requests
 
-from utils.exceptions import GithubRequestFailed
+from backend_app.utils import GithubRequestFailed
 
 
 class GithubService:
