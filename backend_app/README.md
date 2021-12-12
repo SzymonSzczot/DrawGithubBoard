@@ -23,7 +23,8 @@ python main.py
 ```
 
 # Django Module:
-Handle connection with Github
+Handle connection with Github. 
+
 Saves User Drawings
 
 # Frontend Module:
